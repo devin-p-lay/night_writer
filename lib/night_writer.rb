@@ -1,31 +1,24 @@
 class NightWriter
+  attr_reader :input_file_path,
+              :output_file_path
 
   def initialize()
-# read contents fo a file in ruby
-# write it to another file
+    @input_file_path = ARGV[0]
+    @output_file_path = ARGV[1]
   end
 
-  def get_cli_input
-    ARGV
-  end
-
-
-  def print_text
-    file = File.open("message.txt").read
-    puts file
+  def read_message
+    File.open(input_file_path).read
   end
 end
 
-
-#   def read_and_write_to_file(file_path)
+#   def read_and_write(file_path)
 #     message = ARGV
 #     File.open(file_path, 'a+') do |file|
 #       file.write(message)
 #     end
 #   end
-# end
 
-# NightWriter.new.read_file('message.txt')
+# NightWriter.new.read_and_write(input_file_path)
 
-# NightWriter.new.print_text
-NightWriter.new.get_cli_input
+NightWriter.new.read_message
