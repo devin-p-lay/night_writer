@@ -10,7 +10,24 @@ class NightWriter
   def read_message
     File.open(input_file_path).read
   end
+
+  def write_message
+    message = read_message
+    message += "\n ---This message was created at: " + Time.now.to_s + "---"
+    File.open(output_file_path, "w") do |file|
+      file.write(message)
+    end
+    puts "\nNIGHT WRITER:"
+    puts message
+  end
+
 end
+
+
+
+
+
+
 
 #   def read_and_write(file_path)
 #     message = ARGV
@@ -21,4 +38,4 @@ end
 
 # NightWriter.new.read_and_write(input_file_path)
 
-NightWriter.new.read_message
+NightWriter.new.write_message
