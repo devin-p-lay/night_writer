@@ -11,14 +11,12 @@ class NightWriter
     File.open(input_file_path).read
   end
 
-  def write_message
+  def read_and_send_message
     message = read_message
-    message += "\n ---This message was created at: " + Time.now.to_s + "---"
     File.open(output_file_path, "w") do |file|
       file.write(message)
-    end
-    puts "\nNIGHT WRITER:"
-    puts message
+    end 
+    puts "\nCreated #{@output_file_path} containing #{message.size} characters"
   end
 
 end
@@ -38,4 +36,4 @@ end
 
 # NightWriter.new.read_and_write(input_file_path)
 
-NightWriter.new.write_message
+NightWriter.new.read_and_send_message
