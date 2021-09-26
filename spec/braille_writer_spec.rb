@@ -1,5 +1,6 @@
 require 'rspec'
 require './lib/braille_writer'
+require './lib/braille_library'
 
 describe BrailleWriter do
   before :each do
@@ -12,7 +13,7 @@ describe BrailleWriter do
 
   describe '#write' do
     it 'can write braille' do
-      expect(@bw.write('a')).to eq("#{top}\n#{middle}\n#{bottom}")
+      expect(@bw.write(['O.','..','..'])).to eq("#{top}\n#{middle}\n#{bottom}")
     end
-  end 
+  end
 end
