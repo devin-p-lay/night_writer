@@ -11,14 +11,19 @@ class NightWriter
     File.open(input_file_path).read
   end
 
-  def read_and_send_message
-    message = read_message
+  def read_and_convert_message
+    message = convert_to_braille
     File.open(output_file_path, "w") do |file|
       file.write(message)
-    end 
+    end
     puts "\nCreated #{@output_file_path} containing #{message.size} characters"
   end
 
+  def convert_text
+  end
+
+  def braill_40_at_a_time
+  end
 end
 
 
