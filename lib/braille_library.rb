@@ -9,7 +9,6 @@ class BrailleLibrary
 
   def search(char)
     characters[char]
-    end
   end
 
   def characters
