@@ -1,6 +1,5 @@
 class BrailleLibrary
 
-  
   def characters
     {
       a: ['O.','..','..'],
