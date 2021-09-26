@@ -1,3 +1,5 @@
+require './lib/braille_generator'
+
 class NightWriter
   attr_reader :input_file_path,
               :output_file_path
@@ -16,16 +18,15 @@ class NightWriter
     File.open(output_file_path, "w") do |file|
       file.write(message)
     end
-    puts "\nCreated #{@output_file_path} containing #{message.size} characters"
+    puts "Created #{@output_file_path} containing #{(read_message.size) -1} characters"
   end
 
   def convert_text
-    BrailleGenerator.braille(read_message)
-
+    BrailleGenerator.breakdown(read_message)
   end
-
-  def braille_40_at_a_time
-  end
+  #
+  # def braille_40_at_a_time
+  # endI 
 end
 
 NightWriter.new.read_and_convert_message

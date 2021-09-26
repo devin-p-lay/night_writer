@@ -1,20 +1,17 @@
 class BrailleWriter
-  attr_reader :top,
-              :middle,
-              :bottom
-
-  def initialize
-    @top = top
-    @middle = middle
-    @bottom = bottom
-  end
-
-  def write(braille)
-    
-    top = braille[0]
-    middle = braille[1]
-    bottom = braille[2]
-
-    puts '#{@top}\n#{middle}\n#{bottom}'
+  #
+  def self.braille_cell(one_line)
+    return '' if one_line.nil?
+    cell = []
+    counter = 0
+    one_line.each do |section|
+      counter += 1
+      if counter < one_line.length
+        cell << (section + "\n")
+      else
+        cell << section
+      end
+    end
+    cell
   end
 end
