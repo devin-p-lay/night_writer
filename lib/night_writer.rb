@@ -20,6 +20,8 @@ class NightWriter
   end
 
   def convert_text
+    BrailleGenerator.braille(read_message)
+
   end
 
   def braille_40_at_a_time
