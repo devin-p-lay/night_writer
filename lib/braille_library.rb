@@ -1,6 +1,6 @@
 class BrailleLibrary
 
-  def characters
+  def letters
     {
       a: ['O.','..','..'],
       b: ['O.','O.','..'],
@@ -28,8 +28,12 @@ class BrailleLibrary
       x: ['OO','..','OO'],
       y: ['OO','.O','OO'],
       z: ['O.','.O','OO'],
-      space: ['..','..','..'],
-      capital: ['..','..','.O']
+
     }
   end
+
+  def find(char)
+    letters.find do |letter|
+      letter == char
+    end
 end

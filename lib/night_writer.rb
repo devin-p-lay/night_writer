@@ -12,7 +12,7 @@ class NightWriter
   end
 
   def read_and_convert_message
-    message = convert_to_braille
+    message = convert_text
     File.open(output_file_path, "w") do |file|
       file.write(message)
     end
@@ -22,10 +22,11 @@ class NightWriter
   def convert_text
   end
 
-  def braill_40_at_a_time
+  def braille_40_at_a_time
   end
 end
 
+NightWriter.new.read_and_convert_message
 
 
 
@@ -40,5 +41,3 @@ end
 #   end
 
 # NightWriter.new.read_and_write(input_file_path)
-
-NightWriter.new.read_and_send_message
