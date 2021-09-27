@@ -19,4 +19,12 @@ describe BrailleLibrary do
       expect(@bl.search('e')[2]).to eq('..')
     end
   end
+
+  describe '#characters' do
+    it 'can return a hash of characters' do
+      expect(@bl.characters).to be_a Hash
+      expect(@bl.characters.keys).to be_a String
+      expect(@bl.characters.values).to be_an Array
+    end
+  end
 end
