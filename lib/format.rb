@@ -1,6 +1,6 @@
 class Format
-  def self.tobraille(array)
-    f_ray = array.compact.transpose
-    f_ray.map { |row| row.join(' ') }.join("\n")
+  def tobraille(array)
+    formatted_array = array.compact.transpose
+    formatted_array.map { |row| row.join(' ') }.join("\n")
   end
 end
