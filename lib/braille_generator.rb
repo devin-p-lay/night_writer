@@ -1,4 +1,4 @@
-require_relative 'braille_library'
+require_relative 'library'
 require_relative 'format'
 
 class BrailleGenerator
@@ -18,6 +18,6 @@ class BrailleGenerator
   end
 
   def change(letter)
-    @bl.search(letter)
+    @library.search(letter)
   end
 end

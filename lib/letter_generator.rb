@@ -1,3 +1,5 @@
+require_relative 'library'
+
 class LetterGenerator
 
   def initialize
@@ -7,12 +9,12 @@ class LetterGenerator
   def revert(array)
     text = []
     array.find_all do |character|
-      text << change(character)
+      text << @library.characters.invert[character]
     end
+    text.join
   end
 
   def change(letter)
     @library.search(letter)
-    require "pry"; binding.pry
   end
 end

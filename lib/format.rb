@@ -12,8 +12,8 @@ class Format
   end
 
   def frombraille(input_file)
-    array = input_file.split
-    require "pry"; binding.pry
+    num = (((input_file.size - 2)/3) + 1)/3
+    array = input_file.split.each_slice(num).to_a.transpose
     @lg.revert(array)
   end
 end
