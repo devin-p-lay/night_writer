@@ -7,12 +7,13 @@ class BrailleLibrary
     @braille = [:braille]
   end
 
-  def self.search(char)
-    characters[char]
+  def self.search(letter)
+    characters[letter]
   end
 
-  def characters
+  def self.characters
     {
+      ' ' => ['..','..','..'],
       'a' => ['O.','..','..'],
       'b' => ['O.','O.','..'],
       'c' => ['OO','..','..'],

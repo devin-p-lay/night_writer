@@ -2,17 +2,20 @@ require './lib/braille_library'
 require './lib/braille_writer'
 
 class BrailleGenerator
-
-  def self.breakdown(input_file)
-    input_file.split('').map do |character|
-      if !character.nil?
-        change(character)
+  def self.breakdown(read_message)
+    array = []
+    read_message.chars.find_all do |character|
+      if character != '\n'
+        # change(character)
+        array << change(character)
       end
-    end.join
+      array.delete("")
+    end
+    array.compact.transpose
+    Format.tobraille(array)
   end
 
-  def self.change(char)
-    one_line = BrailleLibrary.search(char)
-    BrailleWriter.braille_cell(one_line)
+  def self.change(letter)
+    BrailleLibrary.search(letter)
   end
 end
