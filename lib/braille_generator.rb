@@ -4,8 +4,8 @@ require_relative 'format'
 class BrailleGenerator
 
   def initialize
-    @bl = BrailleLibrary.new
-    @format = Format.new
+    @library = Library.new
+    @format  = Format.new
   end
 
   def breakdown(input_file)
