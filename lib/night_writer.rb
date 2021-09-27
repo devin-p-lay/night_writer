@@ -4,9 +4,18 @@ class NightWriter
   attr_reader :input_file_path,
               :output_file_path
 
-  def initialize()
+  def initialize
     @input_file_path = ARGV[0]
     @output_file_path = ARGV[1]
+    @bg = BrailleGenerator.new
+  end
+
+  def convert_and_send_message
+    message = convert_text
+    File.open(output_file_path, 'w') do |file|
+      file.write(message)
+    end
+    puts "Created #{@output_file_path} containing #{(read_message.size)} characters"
   end
 
   def read_message
@@ -14,20 +23,11 @@ class NightWriter
   end
 
   def convert_text
-    BrailleGenerator.breakdown(read_message)
-  end
-
-
-  def read_and_convert_message
-    message = convert_text
-    File.open(output_file_path, "w") do |file|
-      file.write(message)
-    end
-    puts "Created #{@output_file_path} containing #{(read_message.size)} characters"
+    @bg.breakdown(read_message)
   end
 end
 
-NightWriter.new.read_and_convert_message
+NightWriter.new.convert_and_send_message
 
 
 
