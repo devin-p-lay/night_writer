@@ -1,17 +1,14 @@
-require './lib/braille_library'
-require './lib/format'
+require_relative 'braille_library'
+require_relative 'format'
 
 class BrailleGenerator
   def self.breakdown(input_file)
     array = []
     input_file.chars.find_all do |character|
-      if character != '\n'
-        array << change(character)
-      end
-      # array
+      array << change(character)
     end
     array
-    # Format.tobraille(array)
+    Format.tobraille(array)
   end
 
   def self.change(letter)
