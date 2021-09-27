@@ -1,6 +1,6 @@
-class BrailleWriter
-  #
-  def self.braille_cell(one_line)
+class Format
+  def self.tobraille(array)
+
     return '' if one_line.nil?
     cell = []
     counter = 0
