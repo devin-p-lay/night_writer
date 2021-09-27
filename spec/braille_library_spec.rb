@@ -23,8 +23,10 @@ describe BrailleLibrary do
   describe '#characters' do
     it 'can return a hash of characters' do
       expect(@bl.characters).to be_a Hash
-      expect(@bl.characters.keys).to be_a String
+      expect(@bl.characters.keys).to be_a Array
       expect(@bl.characters.values).to be_an Array
+      expect(@bl.characters.keys[0]).to be_a String
+      expect(@bl.characters.values[0][0]).to be_an String
     end
   end
 end
