@@ -13,13 +13,18 @@ class NightWriter
     File.open(input_file_path).read
   end
 
-
   def convert_text
-    BrailleGenerator.breakdown(read_message)
+    letters = BrailleGenerator.breakdown(read_message)
+    braille_40_at_a_time(letters)
   end
-  
-  # def braille_40_at_a_time
-  # end
+
+  def braille_40_at_a_time(letters)
+    require "pry"; binding.pry
+    while letters.length > 0
+      text = letters.shift(5)
+      Format.tobraille(text)
+    end
+  end
 
   def read_and_convert_message
     message = convert_text
