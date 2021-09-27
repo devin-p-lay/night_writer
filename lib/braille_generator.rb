@@ -1,17 +1,13 @@
-require './lib/braille_library'
-require './lib/braille_writer'
+require_relative 'braille_library'
+require_relative 'format'
 
 class BrailleGenerator
-  def self.breakdown(read_message)
+  def self.breakdown(input_file)
     array = []
-    read_message.chars.find_all do |character|
-      if character != '\n'
-        # change(character)
-        array << change(character)
-      end
-      array.delete("")
+    input_file.chars.find_all do |character|
+      array << change(character)
     end
-    array.compact.transpose
+    array
     Format.tobraille(array)
   end
 
