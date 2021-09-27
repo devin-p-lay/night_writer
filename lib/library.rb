@@ -1,4 +1,4 @@
-class BrailleLibrary
+class Library
   attr_reader :letters,
               :braille
 

@@ -1,11 +1,11 @@
-require_relative 'braille_library'
+require_relative 'library'
 require_relative 'format'
 
 class BrailleGenerator
 
   def initialize
-    @bl = BrailleLibrary.new
-    @format = Format.new
+    @library = Library.new
+    @format  = Format.new
   end
 
   def breakdown(input_file)
@@ -18,6 +18,6 @@ class BrailleGenerator
   end
 
   def change(letter)
-    @bl.search(letter)
+    @library.search(letter)
   end
 end
