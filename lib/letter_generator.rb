@@ -7,10 +7,8 @@ class LetterGenerator
   end
 
   def revert(array)
-    text = []
-    array.find_all do |character|
-      text << @library.characters.invert[character]
-    end
-    text.join
+    array.map do |character|
+      @library.characters.invert[character]
+    end.join
   end
 end
