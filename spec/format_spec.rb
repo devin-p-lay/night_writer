@@ -10,8 +10,13 @@ describe Format do
     expect(@format).to be_a Format
   end
 
-  describe '#tobraille' do
+  describe '#to_braille' do
     it 'can format an array to braille cell format' do
-    end 
+    end
   end
+
+  describe '#formatted_array' do
+    it 'can format my nested array' do
+      
+    end
 end

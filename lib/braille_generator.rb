@@ -14,7 +14,7 @@ class BrailleGenerator
       array << change(character)
     end
     array
-    @format.tobraille(array)
+    @format.to_braille(array)
   end
 
   def change(letter)
