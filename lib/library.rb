@@ -1,6 +1,4 @@
 class Library
-  attr_reader :letters,
-              :braille
 
   def initialize(letter: nil, braille: nil)
     @letters = [:letter]
@@ -13,6 +11,8 @@ class Library
 
   def characters
     {
+      '.' => ['..','OO','.O'],
+      ',' => ['..','O.','..'],
       ' ' => ['..','..','..'],
       'a' => ['O.','..','..'],
       'b' => ['O.','O.','..'],

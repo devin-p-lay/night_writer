@@ -10,7 +10,7 @@ class NightWriter
     @bg = BrailleGenerator.new
   end
 
-  def convert_and_send_message
+  def convert_and_send_message(file: output_file_path, text: convert_text)
     message = convert_text
     File.open(output_file_path, 'w') do |file|
       file.write(message)
@@ -27,20 +27,4 @@ class NightWriter
   end
 end
 
-NightWriter.new.convert_and_send_message
-
-
-
-
-
-
-
-
-
-# def braille_40_at_a_time(letters)
-#   while letters.length > 0
-#     text = letters.shift(40)
-#     Format.tobraille(text)
-#   end
-# end
-
+NightWriter.new.convert_and_send_message 

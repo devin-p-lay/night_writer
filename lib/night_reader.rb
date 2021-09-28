@@ -15,7 +15,7 @@ class NightReader
   end
 
   def convert_text
-    @format.frombraille(read_message)
+    @format.from_braille(read_message)
   end
 
   def convert_and_send_message

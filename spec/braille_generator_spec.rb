@@ -12,7 +12,7 @@ describe BrailleGenerator do
 
   describe '#breakdown' do
     it 'can breakdown the file into individual characters' do
-    end 
+    end
   end
 
   describe '#change' do
@@ -20,4 +20,3 @@ describe BrailleGenerator do
     end
   end
 end
-
