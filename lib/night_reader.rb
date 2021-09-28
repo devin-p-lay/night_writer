@@ -27,4 +27,4 @@ class NightReader
   end
 end
 
-NightReader.new.convert_and_send_message
+# NightReader.new.convert_and_send_message
