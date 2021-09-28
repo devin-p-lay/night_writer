@@ -13,8 +13,4 @@ class LetterGenerator
     end
     text.join
   end
-
-  def change(letter)
-    @library.search(letter)
-  end
 end
