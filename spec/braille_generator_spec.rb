@@ -33,11 +33,4 @@ describe BrailleGenerator do
       expect(@bg.format_to_braille([['O.','OO','..'],['.O','O.','..']])).to eq("O. .O\nOO O.\n.. ..")
     end
   end
-
-  describe '#string_split' do
-    it 'can split the input message to individual character strings' do
-
-    end
-  end
 end
-

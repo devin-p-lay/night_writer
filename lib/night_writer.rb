@@ -1,25 +1,25 @@
 require_relative 'braille_generator'
 
 class NightWriter
-  attr_reader :input_file_path,
-              :output_file_path
+  attr_accessor :input,
+                :output
 
-  def initialize
-    @input_file_path = ARGV[0]
-    @output_file_path = ARGV[1]
+  def initialize()
+    @input = ARGV[0]
+    @output = ARGV[1]
     @bg = BrailleGenerator.new
   end
 
-  def convert_and_send_message(file: output_file_path, text: convert_text)
+  def convert_and_send_message
     message = convert_text
-    File.open(output_file_path, 'w') do |file|
+    File.open(output, 'w') do |file|
       file.write(message)
     end
-    puts "Created #{@output_file_path} containing #{(read_message.size)} characters"
+    puts "Created #{@output} containing #{(read_message.size)} characters"
   end
 
   def read_message
-    File.open(input_file_path).read
+    File.open(input).read
   end
 
   def convert_text
@@ -27,4 +27,12 @@ class NightWriter
   end
 end
 
-NightWriter.new.convert_and_send_message
+# nw = NightWriter.new(ARGV[0], ARGV[1])
+# nw.convert_and_send_message
+
+# NightWriter.new.convert_and_send_message
+
+night_writer = NightWriter.new
+night_writer.input = './message.txt' if night_writer.input.nil?
+night_writer.output = './braille.txt' if night_writer.output.nil?
+night_writer.convert_and_send_message

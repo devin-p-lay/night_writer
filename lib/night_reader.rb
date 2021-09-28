@@ -1,17 +1,17 @@
 require_relative 'format'
 
 class NightReader
-  attr_reader :input_file_path,
-              :output_file_path
+  attr_accessor :input,
+              :output
 
   def initialize
-    @input_file_path = ARGV[0]
-    @output_file_path = ARGV[1]
+    @input = ARGV[0]
+    @output = ARGV[1]
     @format = Format.new
   end
 
   def read_message
-    File.open(input_file_path).read
+    File.open(input).read
   end
 
   def convert_text
@@ -20,11 +20,16 @@ class NightReader
 
   def convert_and_send_message
     message = convert_text
-    File.open(output_file_path, 'w') do |file|
+    File.open(output, 'w') do |file|
       file.write(message)
     end
-    puts "Created #{@output_file_path} containing #{(message.size)} characters"
+    puts "Created #{@output} containing #{(message.size)} characters"
   end
 end
 
-NightReader.new.convert_and_send_message
+# NightReader.new.convert_and_send_message
+#
+night_reader = NightReader.new
+night_reader.input = './braille.txt' if night_reader.input.nil?
+night_reader.output = './output.txt' if night_reader.output.nil?
+night_reader.convert_and_send_message

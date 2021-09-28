@@ -23,7 +23,7 @@ describe NightWriter do
       File.write('./message.txt', "hello")
       @night_writer.convert_and_send_message(file: "./braille.txt", text: "O. O. OO\nOO .O .O\n.. .. OO")
     end
-    xit 'can convert and send a message' do
+    it 'can convert and send a message' do
       result = File.read("./braille.txt")
       expect(result).to eq("O. O. OO\nOO .O .O\n.. .. OO")
     end
