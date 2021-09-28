@@ -12,11 +12,17 @@ describe BrailleGenerator do
 
   describe '#breakdown' do
     it 'can breakdown the file into individual characters' do
-    end 
+    end
   end
 
   describe '#change' do
     it 'can change text into braille' do
+    end
+  end
+
+  describe '#string_split' do
+    it 'can split the input message to individual character strings' do
+
     end
   end
 end

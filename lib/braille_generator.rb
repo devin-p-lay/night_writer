@@ -8,16 +8,23 @@ class BrailleGenerator
     @format  = Format.new
   end
 
-  def breakdown(input_file)
+  def string_split_array(input_file)
     array = []
-    input_file.chars.find_all do |character|
+    string_split(input_file).each do |character|
       array << change(character)
     end
     array
-    @format.to_braille(array)
+  end
+
+  def format_to_braille
+    @format.to_braille(string_split_array)
   end
 
   def change(letter)
     @library.search(letter)
+  end
+
+  def string_split(string)
+    string.chars
   end
 end
