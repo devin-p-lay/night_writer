@@ -10,7 +10,7 @@ class Format
     formatted_array(array).map { |row| row.join(' ') }.join("\n")
   end
 
-  def frombraille(input_string)
+  def from_braille(input_string)
     num = (((input_string.size - 2)/3) + 1)/3
     array = input_string.split.each_slice(num).to_a.transpose
     @lg.revert(array)
@@ -20,5 +20,3 @@ class Format
     array.compact.transpose
   end
 end
-
-
