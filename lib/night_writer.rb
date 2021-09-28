@@ -23,7 +23,7 @@ class NightWriter
   end
 
   def convert_text
-    @bg.breakdown(read_message)
+    @bg.manipulate(read_message)
   end
 end
 
